@@ -78,6 +78,12 @@ HistoricoMedico.prototype.registrarProcedimento = function(procedimento){
     console.log(`Procedimento ${procedimento} registrado`);
 }
 
+HistoricoMedico.prototype.realizarProcedimento = function (tipo, motivo) {
+  const procedimento = { tipo, motivo };
+  this.procedimentos.push(procedimento);
+  console.log(`Procedimento ${tipo} (${motivo}) registrado`);
+};
+
 // Exemplo de uso:
 const gato = new Gato("Pipoca", 18, "branco", true);
 const cachorro = new Cachorro("Aslam", 42, "preto", false, "srd");
@@ -85,12 +91,15 @@ const animalExotico = new AnimalExotico("Iogurte", 19, "branco e laranja", "hams
 
 gato.historico.registrarConsulta("09/23/2023");
 gato.historico.aplicarVacina("V8");
+gato.historico.realizarProcedimento("Ultrassom", "Exame de rotina");
 
 cachorro.historico.registrarConsulta("09/22/2023");
 cachorro.historico.aplicarVacina("V10");
+cachorro.historico.realizarProcedimento("Radiografia", "Avaliação ortopédica");
 
 animalExotico.historico.registrarConsulta("09/21/2023");
 animalExotico.historico.registrarProcedimento("Ultrassom");
+animalExotico.historico.realizarProcedimento("Check-up", "Exame geral");
 
 console.log(gato);
 console.log(cachorro);
