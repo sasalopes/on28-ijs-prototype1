@@ -1,6 +1,5 @@
 //Gatos
 
-
 function Gato(nome, idade, cor, castrado){
     this.nome = nome;
     this.idade = idade;
@@ -14,8 +13,6 @@ Gato.prototype.miar = function(){
     console.log(`0 gato ${this.nome} está miando`)
 }
 //cachorros
-
-
 
 function Cachorro(nome, idade, cor, castrado, raca){
     this.nome = nome;
@@ -31,7 +28,6 @@ Cachorro.prototype.latir = function(){
 }
 
 //Animais Exóticos
-
 
 
 function AnimalExotico(nome, idade, cor, especie){
@@ -83,7 +79,6 @@ HistoricoMedico.prototype.realizarProcedimento = function (tipo, motivo) {
   this.procedimentos.push(procedimento);
   console.log(`Procedimento ${tipo} (${motivo}) registrado`);
 };
-
 // Exemplo de uso:
 const gato = new Gato("Pipoca", 18, "branco", true);
 const cachorro = new Cachorro("Aslam", 42, "preto", false, "srd");
@@ -97,9 +92,24 @@ cachorro.historico.registrarConsulta("09/22/2023");
 cachorro.historico.aplicarVacina("V10");
 cachorro.historico.realizarProcedimento("Radiografia", "Avaliação ortopédica");
 
-animalExotico.historico.registrarConsulta("09/21/2023");
+animalExotico.historico.registrarConsulta("09/21/2023");s
 animalExotico.historico.registrarProcedimento("Ultrassom");
 animalExotico.historico.realizarProcedimento("Check-up", "Exame geral");
+
+console.log("Procedimentos realizados para " + gato.nome + ":");
+gato.historico.procedimentos.forEach((procedimento, index) => {
+  console.log(`Procedimento ${index + 1}: ${procedimento.tipo} (${procedimento.motivo})`);
+}); 
+
+console.log("Procedimentos realizados para " + cachorro.nome + ":");
+cachorro.historico.procedimentos.forEach((procedimento, index) => {
+  console.log(`Procedimento ${index + 1}: ${procedimento.tipo} (${procedimento.motivo})`);
+});
+
+console.log("Procedimentos realizados para " + animalExotico.nome + ":");
+animalExotico.historico.procedimentos.forEach((procedimento, index) => {
+  console.log(`Procedimento ${index + 1}: ${procedimento.tipo} (${procedimento.motivo})`);
+});
 
 console.log(gato);
 console.log(cachorro);
